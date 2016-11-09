@@ -12,12 +12,6 @@
 Debounce decorator for [redux-storage][] to delay & combine the expensive
 `engine.save` operation.
 
-# A fork of [michaelcontento/redux-storage-decorator-debounce](https://github.com/michaelcontento/redux-storage-decorator-debounce)
-
-The original author of the package [redux-storage-decorator-debounce](https://github.com/michaelcontento/redux-storage-decorator-debounce) has decided to deprecate the project and no longer maintained. The package will now be maintained here.
-
-Thank you michaelcontento for a great library!
-
 ## Installation
 
     npm install --save redux-storage-decorator-debounce
@@ -32,6 +26,12 @@ import debounce from 'redux-storage-decorator-debounce'
 
 engine = debounce(engine, 1500);
 ```
+
+# A fork of [redux-storage-decorator-debounce](https://github.com/michaelcontento/redux-storage-decorator-debounce)
+
+The original author of the package [redux-storage-decorator-debounce](https://github.com/michaelcontento/redux-storage-decorator-debounce) has decided to deprecate the project and no longer maintained. The package will now be maintained here.
+
+Thank you [michaelcontento](https://github.com/michaelcontento) for a great library!
 
 ## License
 
