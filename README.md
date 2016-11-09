@@ -12,14 +12,11 @@
 Debounce decorator for [redux-storage][] to delay & combine the expensive
 `engine.save` operation.
 
-# Deprecated - No longer maintained
+# A fork of [michaelcontento/redux-storage-decorator-debounce](https://github.com/michaelcontento/redux-storage-decorator-debounce)
 
-My focus has left the node / react ecosystem and this module is no
-longer maintained. Maybe [redux-persist](https://github.com/rt2zz/redux-persist) 
-is a good replacement for you? Or if you want to step in and become
-the new owner - just ping me :smile:
+The original author of the package [redux-storage-decorator-debounce](https://github.com/michaelcontento/redux-storage-decorator-debounce) has decided to deprecate the project and no longer maintained. The package will now be maintained here.
 
-Thank you for your patience and using this module in the first place!
+Thank you michaelcontento for a great library!
 
 ## Installation
 
@@ -40,7 +37,7 @@ engine = debounce(engine, 1500);
 
     The MIT License (MIT)
 
-    Copyright (c) 2015 Michael Contento
+    Copyright (c) 2015 Gunjan Soni
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of
     this software and associated documentation files (the "Software"), to deal in
@@ -59,5 +56,5 @@ engine = debounce(engine, 1500);
     IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
     CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-  [redux-storage]: https://github.com/michaelcontento/redux-storage
-  [redux-storage-decorator-debounce]: https://github.com/michaelcontento/redux-storage-decorator-debounce
+  [redux-storage]: https://github.com/guns2410/redux-storage
+  [redux-storage-decorator-debounce]: https://github.com/guns2410/redux-storage-decorator-debounce
