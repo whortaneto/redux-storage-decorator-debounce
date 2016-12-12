@@ -1,13 +1,12 @@
 # [redux-storage-decorator-debounce][]
 
-[![build](https://travis-ci.org/michaelcontento/redux-storage-decorator-debounce.svg?branch=master)](https://travis-ci.org/michaelcontento/redux-storage-decorator-debounce)
-[![dependencies](https://david-dm.org/michaelcontento/redux-storage-decorator-debounce.svg)](https://david-dm.org/michaelcontento/redux-storage-decorator-debounce)
-[![devDependencies](https://david-dm.org/michaelcontento/redux-storage-decorator-debounce/dev-status.svg)](https://david-dm.org/michaelcontento/redux-storage-decorator-debounce#info=devDependencies)
+[![build](https://travis-ci.org/react-stack/redux-storage-decorator-debounce.svg?branch=master)](https://travis-ci.org/react-stack/redux-storage-decorator-debounce)
+[![dependencies](https://david-dm.org/react-stack/redux-storage-decorator-debounce.svg)](https://david-dm.org/react-stack/redux-storage-decorator-debounce)
+[![devDependencies](https://david-dm.org/react-stack/redux-storage-decorator-debounce/dev-status.svg)](https://david-dm.org/react-stack/redux-storage-decorator-debounce#info=devDependencies)
 
 [![license](https://img.shields.io/npm/l/redux-storage-decorator-debounce.svg?style=flat-square)](https://www.npmjs.com/package/redux-storage-decorator-debounce)
 [![npm version](https://img.shields.io/npm/v/redux-storage-decorator-debounce.svg?style=flat-square)](https://www.npmjs.com/package/redux-storage-decorator-debounce)
 [![npm downloads](https://img.shields.io/npm/dm/redux-storage-decorator-debounce.svg?style=flat-square)](https://www.npmjs.com/package/redux-storage-decorator-debounce)
-[![Code Climate](https://codeclimate.com/github/michaelcontento/redux-storage-decorator-debounce/badges/gpa.svg)](https://codeclimate.com/github/michaelcontento/redux-storage-decorator-debounce)
 
 Debounce decorator for [redux-storage][] to delay & combine the expensive
 `engine.save` operation.
