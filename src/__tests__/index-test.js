@@ -38,7 +38,8 @@ describe('debounce', () => {
         const engine = debounce({ save }, 30, 160);
 
         const saveEngine = () => {
-            engine.save({});
+            const noop = () => {};
+            engine.save({}).catch(noop);
         };
 
         for (let i = 0; i < 300; i += 20) {
