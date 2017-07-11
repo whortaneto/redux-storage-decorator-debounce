@@ -1,4 +1,4 @@
-export default (engine, ms, maxWait = null) => {
+export default (engine, ms, maxWait = null, eventsToPersistOn = ['beforeunload']) => {
     if (maxWait !== null && ms > maxWait) {
         throw new Error('maxWait must be > ms');
     }
@@ -15,7 +15,7 @@ export default (engine, ms, maxWait = null) => {
         // ignore error
     }
     if (hasWindow && window.addEventListener) {
-        window.addEventListener('beforeunload', () => {
+        const saveUponEvent = () => {
             if (!lastTimeout) {
                 return;
             }
@@ -24,7 +24,8 @@ export default (engine, ms, maxWait = null) => {
             maxTimeout = clearTimeout(maxTimeout);
             lastReject = null;
             engine.save(lastState);
-        });
+        };
+        eventsToPersistOn.forEach(eventName => window.addEventListener(eventName, saveUponEvent));
     }
 
     return {
