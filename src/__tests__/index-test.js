@@ -65,6 +65,19 @@ describe('debounce', () => {
         }, 25);
     });
 
+    it('should save early on other events', (done) => {
+        const save = sinon.stub().resolves();
+        const engine = debounce({ save }, 500, null, ['onpause']);
+
+        engine.save({});
+        window.dispatchEvent('onpause');
+
+        setTimeout(() => {
+            save.should.have.been.calledOnce;
+            done();
+        }, 25);
+    });
+
     it('should not self-trigger save on beforeunload', (done) => {
         const save = sinon.stub().resolves();
         debounce({ save }, 0);
