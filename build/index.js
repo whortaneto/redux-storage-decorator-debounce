@@ -20,9 +20,7 @@ exports['default'] = function (engine, ms) {
         throw new Error('maxWait must be > ms');
     }
 
-    var debounced = false;
     var lastReject = void 0;
-    var lastState = void 0;
 
     var hasWindow = false;
     try {
@@ -30,28 +28,22 @@ exports['default'] = function (engine, ms) {
     } catch (err) {
         // ignore error
     }
+
+    var debouncedSave = (0, _lodash2['default'])(function (stateToSave, resolve, reject) {
+        engine.save(stateToSave).then(resolve)['catch'](reject);
+    }, ms, { maxWait: maxWait });
+
     if (hasWindow && window.addEventListener) {
         var saveUponEvent = function saveUponEvent() {
-            if (!debounced) {
-                return;
-            }
-            lastReject = null;
-            engine.save(lastState);
+            debouncedSave.flush();
         };
         eventsToPersistOn.forEach(function (eventName) {
             return window.addEventListener(eventName, saveUponEvent);
         });
     }
 
-    var debouncedSave = (0, _lodash2['default'])(function (stateToSave, resolve, reject) {
-        debounced = false;
-        engine.save(stateToSave).then(resolve)['catch'](reject);
-    }, ms, { maxWait: maxWait });
-
     return _extends({}, engine, {
         save: function save(state) {
-            lastState = state;
-
             if (lastReject) {
                 lastReject(Error('Debounced, newer action pending'));
                 lastReject = null;
@@ -59,7 +51,6 @@ exports['default'] = function (engine, ms) {
 
             return new Promise(function (resolve, reject) {
                 lastReject = reject;
-                debounced = true;
                 debouncedSave(state, resolve, reject);
             });
         }
