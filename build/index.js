@@ -12,6 +12,8 @@ var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+var debounce = _lodash2['default'] || require('lodash/debounce');
+
 exports['default'] = function (engine, ms) {
     var maxWait = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
     var eventsToPersistOn = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : ['beforeunload'];
@@ -29,7 +31,7 @@ exports['default'] = function (engine, ms) {
         // ignore error
     }
 
-    var debouncedSave = (0, _lodash2['default'])(function (stateToSave, resolve, reject) {
+    var debouncedSave = debounce(function (stateToSave, resolve, reject) {
         engine.save(stateToSave).then(resolve)['catch'](reject);
     }, ms, { maxWait: maxWait });
 

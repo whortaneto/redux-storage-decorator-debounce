@@ -1,4 +1,6 @@
-import debounce from 'lodash.debounce';
+import localDebounce from 'lodash.debounce';
+
+const debounce = localDebounce || require('lodash/debounce');
 
 export default (engine, ms, maxWait = null, eventsToPersistOn = ['beforeunload']) => {
     if (maxWait !== null && ms > maxWait) {
